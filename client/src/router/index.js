@@ -22,7 +22,7 @@ const routes = [
       name: 'home',
       component: HomeView,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -47,6 +47,14 @@ const routes = [
       component: RegisterView,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/addnew",
+      name: "addPlaylist",
+      component: HomeView,
+      meta: {
+        requiresAuth: true
       }
     }
   ];

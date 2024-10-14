@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <playlist-list />
-    <popular-songs />
+    <!-- <popular-songs /> -->
     <current-songs />
     <about-true-tender />
   </div>
@@ -9,19 +9,18 @@
 
 <script>
 import PlaylistList from "../components/PlaylistList.vue";
-import PopularSongs from "../components/PopularSongs.vue";
 import currentSongs from "../components/CurrentSongs.vue";
 import AboutTrueTender from "../components/AboutTrueTender.vue"
 import { resourceService} from "../services/resourceService.js";
 
 export default {
-  components: { PlaylistList, PopularSongs, currentSongs, AboutTrueTender},
+  components: { PlaylistList, currentSongs, AboutTrueTender},
   created() {
     this.isLoading = true;
-    resourceService.getPlaylistGenres().then( (response) => {
-      this.$store.commit("SET_PLAYLIST_GENRES", response.data)
-    });
     resourceService.getPlaylists().then( (response) => {
+      this.$store.commit("SET_PLAYLIST_NAMES", response.data)
+    });
+    resourceService.getPlaylist().then( (response) => {
       this.$store.commit('SET_CURRENT_SONGS', response.data)
     });
 
@@ -37,8 +36,8 @@ export default {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 3fr 2fr;
   grid-template-areas:
-    "changePlaylist currentSongs addNewPlaylist"
-    "findNew findNew findNew"
+    "changePlaylist currentSongs currentSongs"
+    /* "findNew findNew findNew" */
     "about about about";
 }
 

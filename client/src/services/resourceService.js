@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const resourceService = {
-getPlaylists(){
+getPlaylist(){
     return axios.get('/songs')
   },
-  getPlaylistGenres(){
+  getPlaylists(){
     return axios.get('/playlists')
   },
   // getRecentPopularSongs(){

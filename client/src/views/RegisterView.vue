@@ -73,9 +73,13 @@
           <button type="submit">Create Account</button>
         </div>
       </div>
-      <hr />
-      Have an account?
-      <router-link v-bind:to="{ name: 'login' }">Sign in!</router-link>
+      <div id="loginLink">
+        <hr />
+          Have an account?
+        <router-link v-bind:to="{ name: 'login' }">
+          <button>Sign in! </button> 
+        </router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -146,4 +150,52 @@ export default {
 </script>
 
 <style scoped>
+  #register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1{
+    color: #ffefd3;
+    font-size: 30pt;
+    text-shadow: 3px 3px 3px black;
+    text-align: center;
+    border-radius: 30px;
+  }
+
+  #fields{
+    display: flex;
+    flex-direction: column;
+    background: #ffefd3;
+    width: 97vw;
+    border-radius: 30px;
+    border: 5px solid #adb6c4;
+    align-items: center;
+  }
+
+  button {
+  list-style: none;
+  background-color: #adb6c4;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 3px 3px #294c60;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 150px;
+  }
+  label{
+    color: #294c60;
+    text-align: center;
+  }
+  input{
+    width: 300px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  #loginLink {
+    color: #ffefd3;
+  }
+
 </style>

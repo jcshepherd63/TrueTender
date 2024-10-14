@@ -6,6 +6,9 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import AddPlaylistView from '../views/AddPlaylistView.vue'
+import PopularSongsView from '../views/PopularSongsView.vue'
+import AddSongView from '../views/AddSongView.vue'
 
 
 /**
@@ -50,11 +53,27 @@ const routes = [
       }
     },
     {
-      path: "/addnew",
+      path: "/add-playlist",
       name: "addPlaylist",
-      component: HomeView,
+      component: AddPlaylistView,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/add-song",
+      name: "addSong",
+      component: AddSongView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/popular-songs",
+      name: "popularSongs",
+      component: PopularSongsView,
+      meta: {
+        requiresAuth: false
       }
     }
   ];

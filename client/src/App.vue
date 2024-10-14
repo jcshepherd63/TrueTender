@@ -4,7 +4,7 @@
     <header id="header">
     <img src="./assets/TrueTender.jpg" alt="TrueTender" />
     <h1>TrueTender</h1>
-    <nav>
+    <nav id="appNav">
       <router-link v-bind:to="{ name: 'home' }">
         <button>Home</button>
       </router-link>
@@ -15,6 +15,14 @@
 
       <router-link v-bind:to="{ name: 'login' }" v-else>
         <button>Login</button>
+      </router-link>
+
+      <router-link v-bind:to="{ name: 'popularSongs'}"> 
+        <button>Popular Songs</button>
+      </router-link>
+
+      <router-link v-bind:to="{ name: 'addPlaylist'}">
+        <button>Add Playlist</button>
       </router-link>
     </nav>
   </header>
@@ -35,7 +43,7 @@ header {
   border: 5px solid #adb6c4;
   border-radius: 30px;
   height: 165px;
-  width: 98vw;
+  width: 97vw;
   /* position: fixed; */
   display: flex;
   justify-content: space-between;
@@ -64,6 +72,10 @@ header img {
 }
 
 /* Header Nav Bar List --------------- */
+#appNav {
+  display: flex;
+  flex-direction: column;
+}
 nav button {
   list-style: none;
   background-color: #adb6c4;
@@ -72,6 +84,7 @@ nav button {
   box-shadow: 3px 3px 3px #294c60;
   margin-bottom: 10px;
   margin-right: 10px;
+  width: 150px;
 }
 
 body {
@@ -97,6 +110,8 @@ footer {
   font-size: 12pt;
   color: white;
   font-style: italic;
+  right: 30px;
+  text-align: right;
 }
 /* Footer ----------------------- */
 

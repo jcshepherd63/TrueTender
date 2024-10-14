@@ -1,9 +1,9 @@
 <template>
   <section id="playlists">
-    <h2>Playlists</h2>
-    <ul id="playlists">
-        <li v-for="playlistGenre in playlistGenres" v-bind:key="playlistGenre.genre">
-            {{ playlistGenre.genre }}
+    <h2>Current Playlists</h2>
+    <ul id="playlist-names">
+        <li v-for="playlist in playlists" v-bind:key="playlist.playlistName">
+            {{ playlist.playlistName }}
         </li>
     </ul>
   </section>
@@ -12,8 +12,8 @@
 <script>
 export default {
     computed: {
-        playlistGenres() {
-            return this.$store.state.playlistGenres;
+        playlists() {
+            return this.$store.state.playlists;
         }
     }
 
@@ -31,14 +31,18 @@ export default {
   margin-right: 5px;
 }
 
-#playlists {
+#playlists ul{
   list-style: none;
   text-align: center;
 }
 
 #playlists li {
-  background-color: lightblue;
+  background-color: #adb6c4;
   border-radius: 30px;
   margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 40px;
 }
 </style>

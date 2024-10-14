@@ -4,17 +4,17 @@ import axios from 'axios';
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
-      playlistsGenres: [],
+      playlists: [],
       currentSongs: [],
       token: currentToken || '',
       user: currentUser || {},
     },
     mutations: {
-      SET_PLAYLISTS_GENRES(state, playlistsGenres) {
-        state.playlistsGenres = playlistsGenres;
+      SET_PLAYLIST_NAMES(state, playlists) {
+        state.playlists = playlists;
       },
-      SET_CURRENT_SONGS(state, currentSongs) {
-        state.currentSongs = currentSongs;
+      SET_CURRENT_SONGS(state, playlist) {
+        state.playlist = playlist;
       },
       SET_AUTH_TOKEN(state, token) {
         state.token = token;

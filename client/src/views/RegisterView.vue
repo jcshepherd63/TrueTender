@@ -198,4 +198,13 @@ export default {
     color: #ffefd3;
   }
 
+  @media only screen and (max-width: 425px) {
+    #register {
+      width: auto;
+      justify-content: center;
+      width: 730px;
+
+    }
+  }
+
 </style>

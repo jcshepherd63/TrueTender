@@ -2,8 +2,9 @@
   <section id="current-songs">
     <h2>Current Songs</h2>
     <ul id="currentSongs">
-        <li v-for="song in playlist" :key="song.songName">
-            {{ song.songName }}
+        <li v-for="song in playlist" :key="song.songName"
+          @click="selected(playlist.playlistName)">
+            {{ song.songName }} {{ "-- " + song.songArtist }}
         </li>
     </ul>
     <div id="addSongDiv">
@@ -19,7 +20,12 @@ export default {
     computed: {
         playlist() {
             return this.$store.state.playlist;
-        }
+        },
+    //     isAdmin() {
+    //     return this.$store.state.user && 
+    //     this.$store.state.user.authoritiesString &&
+    //     this.$store.state.user.authoritiesString.includes("ROLE_ADMIN");
+    // },
     }
 };
 </script>

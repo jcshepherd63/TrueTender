@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { resourceService } from '../services/resourceService';
 export default {
   data() {
     return {
@@ -24,6 +25,20 @@ export default {
       },
     };
   },
+
+  methods: {
+    addSong() {
+      resourceService
+        .addSong(this.song)
+        .then((response) => {
+          if(response.status ==201){
+            this.$router.push({
+              path: "/"
+            })
+          }
+        })
+    }
+  }
 };
 </script>
 
@@ -62,4 +77,15 @@ button {
   margin-right: 10px;
   width: 150px;
 }
+
+@media only screen and (max-width: 425px) {
+    #songForm {
+      width: auto;
+      justify-content: center;
+      width: 730px;
+    }
+    h1 {
+      width: 730px;
+    }
+  }
 </style>

@@ -52,4 +52,12 @@ export default {
 #current-songs{
   grid-area: currentSongs;
 }
+
+@media only screen and (max-width: 425px) {
+  #home {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  }
+}
 </style>

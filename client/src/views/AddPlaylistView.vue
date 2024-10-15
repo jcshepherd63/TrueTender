@@ -100,4 +100,17 @@ input{
   margin-right: 10px;
   width: 150px;
   }
+
+  @media only screen and (max-width: 425px) {
+  #playlistFlex {
+    display: flex;
+    flex-direction: column;
+    width: 730px;
+    margin-top: 10px;
+    padding-bottom: 20px;
+  }
+  h1 {
+    width: 730px;
+  }
+  }
 </style>

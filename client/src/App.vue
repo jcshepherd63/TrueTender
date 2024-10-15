@@ -116,28 +116,11 @@ footer {
 /* Footer ----------------------- */
 
 @media only screen and (max-width: 425px) {
-  html {
-    background-color: black;
-  }
-
   header {
-    height: auto;
-    padding: 10px;
+    width: 700px;
   }
-
-  h1 {
-    font-size: 24pt;
-  }
-
-  nav ul li {
-    width: 100%;
-    font-size: 12pt;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  footer {
+    padding-top: 50px;
   }
 }
 </style>

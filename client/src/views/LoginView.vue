@@ -118,4 +118,13 @@ export default {
   #registerLink {
     color: #ffefd3;
   }
+
+  @media only screen and (max-width: 425px) {
+    #login {
+      width: auto;
+      justify-content: center;
+      width: 730px;
+
+    }
+  }
 </style>

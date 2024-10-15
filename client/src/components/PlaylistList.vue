@@ -1,9 +1,13 @@
 <template>
   <section id="playlists">
-    <h2>Current Playlists</h2>
+    <h2>Current Genres</h2>
     <ul id="playlist-names">
-        <li v-for="playlist in playlists" v-bind:key="playlist.playlistName">
-            {{ playlist.playlistName }}
+        <li v-for="playlist in playlists" v-bind:key="playlist.playlistName"
+        @click="selected(playlist.playlistName)"
+        :class="{ selected: playlist.playlistName === $store.state.currentPlaylistName }">
+        <div>
+          {{ playlist.playlistName }}
+        </div>
         </li>
     </ul>
   </section>
@@ -15,7 +19,12 @@ export default {
         playlists() {
             return this.$store.state.playlists;
         }
-    }
+    },
+    methods: {
+        selected(playlistName) {
+            this.$store.commit("SET_CURRENT_PLAYLIST_NAME", playlistName);
+        },
+    },
 
 
 };

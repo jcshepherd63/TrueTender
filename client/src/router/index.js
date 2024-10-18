@@ -7,8 +7,9 @@ import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import AddPlaylistView from '../views/AddPlaylistView.vue'
-import PopularSongsView from '../views/PopularSongsView.vue'
+import EditSongView from '../views/EditSongView.vue'
 import AddSongView from '../views/AddSongView.vue'
+import EditPlaylistView from '../views/EditPlaylistView.vue'
 
 
 /**
@@ -69,11 +70,19 @@ const routes = [
       }
     },
     {
-      path: "/popular-songs",
-      name: "popularSongs",
-      component: PopularSongsView,
+      path: `/songs/:songID`,
+      name: "editSong",
+      component: EditSongView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
+      }
+    },
+    {
+      path: `/playlists/:playlistID`,
+      name: "editPlaylist",
+      component: EditPlaylistView,
+      meta: {
+        requiresAuth: true
       }
     }
   ];

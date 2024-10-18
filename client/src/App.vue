@@ -1,37 +1,48 @@
 <template>
-
   <div id="music-app">
     <header id="header">
-    <img src="./assets/TrueTender.jpg" alt="TrueTender" />
-    <h1>TrueTender</h1>
-    <nav id="appNav">
-      <router-link v-bind:to="{ name: 'home' }">
-        <button>Home</button>
-      </router-link>
+      <img src="./assets/TrueTender.jpg" alt="TrueTender" />
+      <h1>TrueTender</h1>
+      <nav id="appNav">
+        <router-link v-bind:to="{ name: 'home' }">
+          <button>Home</button>
+        </router-link>
 
-      <router-link v-bind:to="{ name: 'logout' }" v-if="this.$store.state.token">
-        <button>Logout</button>
-      </router-link>
+        <router-link
+          v-bind:to="{ name: 'logout' }"
+          v-if="this.$store.state.token"
+        >
+          <button>Logout</button>
+        </router-link>
 
-      <router-link v-bind:to="{ name: 'login' }" v-else>
-        <button>Login</button>
-      </router-link>
+        <router-link v-bind:to="{ name: 'login' }" v-else>
+          <button>Login</button>
+        </router-link>
 
-      <router-link v-bind:to="{ name: 'popularSongs'}"> 
-        <button>Popular Songs</button>
-      </router-link>
-
-      <router-link v-bind:to="{ name: 'addPlaylist'}">
-        <button>Add Playlist</button>
-      </router-link>
-    </nav>
-  </header>
+        <router-link v-bind:to="{ name: 'addPlaylist' }">
+          <button>Add Genre</button>
+        </router-link>
+      </nav>
+    </header>
     <main>
       <router-view />
     </main>
     <footer>Copyright &copy; 2024 All Rights Reserved.</footer>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    // isAdmin() {
+    //   return (
+    //     this.$store.state.user &&
+    //     this.$store.state.user.role.includes("ROLE_ADMIN")
+    //   );
+    // },
+  },
+};
+</script>
 
 <style>
 html {

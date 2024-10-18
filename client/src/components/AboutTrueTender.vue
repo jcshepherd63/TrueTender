@@ -2,9 +2,8 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      TrueTender is a webpage that allows its users to collaborate and make
-      combined playlists. It allows groups of friends to share their own taste
-      and common taste in music.
+      TrueTender is a webpage that allows its users to collaborate and make a
+      combined playlist. It allows users to share their taste in music. They can use the genre list to keep track of what genres users like and they can use the song list to keep track of songs on the playlist.
     </p>
   </section>
 </template>

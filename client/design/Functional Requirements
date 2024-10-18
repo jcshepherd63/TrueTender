@@ -1,0 +1,25 @@
+TrueTender
+
+Description
+The application is for viewing, adding, updating, and deleting songs from a playlist tracker.
+Songs are organized into genres and each genre can have many songs. At a minimum users of
+the API should be able to view all the genres, view all the songs, view all of the entries for a
+playlist and do CRUD operations on the genres and songs. The user should be authenticated and
+authorized for all mutating operations. Authentication not required for viewing resources.
+
+Functional Requirements
+
+Unauthenticated Users Can:
+● Review a list of all playlists —-------------------------
+● Review a list of all songs —--------------------------
+● Create an account
+
+Admin Users Can:
+● Add a new playlist —-------------------
+● Update an existing playlist —-------------------
+● Delete an existing playlist —----------------------
+● Add a new song —------------------------
+● Update an existing song —---------------------
+● Delete an existing song —----------------------
+● Log in to an account
+● Logout of an account

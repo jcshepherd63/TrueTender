@@ -18,7 +18,7 @@ export default {
   created() {
     this.isLoading = true;
     resourceService.getPlaylists().then( (response) => {
-      this.$store.commit("SET_PLAYLIST_NAMES", response.data)
+      this.$store.commit("SET_CURRENT_PLAYLIST_NAME", response.data)
     });
     resourceService.getPlaylist().then( (response) => {
       this.$store.commit('SET_CURRENT_SONGS', response.data)

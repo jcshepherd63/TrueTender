@@ -1,16 +1,16 @@
 <template>
-  <div id="addSong">
-    <h1>Add A New Song</h1>
+  <div id="editSong">
+    <h1>Edit Current Song</h1>
     <div id="songFlex">
-      <form id="songForm" v-on:submit.prevent="addSong">
-        <h2>New Song Details</h2>
+      <form id="songForm" v-on:submit.prevent="updateSong">
+        <h2>Song Details</h2>
         <label for="songName"> Song Name: </label>
         <input type="text" id="songName" v-model="song.songName" placeholder="Song Name" required />
         <label for="songArtist"> Song Artist: </label>
         <input type="text" id="songArtist" v-model="song.songArtist" placeholder="Artist/Band" />
         <label for="songUrl"> Song Youtube URL: </label>
         <input type="text" id="songUrl" v-model="song.songUrl" placeholder="Youtube URL" />
-        <div><button type="submit">Add Song</button></div>
+        <div><button type="submit">Update Song</button></div>
       </form>
     </div>
   </div>
@@ -30,11 +30,21 @@ export default {
   },
 
   methods: {
-    addSong() {
+    created() {
+    const songId = this.$route.params.songID;
+    resourceService.getSongById(songId)
+        .then(response => {
+            this.song = response.data;
+        })
+      },
+    updateSong() {
+
+      const songID = this.$route.params.songID;
+      console.log("Updating song:", this.song);
       resourceService
-        .addSong(this.song)
+        .updateSong(songID, this.song)
         .then((response) => {
-          if(response.status ==201){
+          if(response.status ==200){
             this.$router.push({
               name: "home"
             })
@@ -83,7 +93,6 @@ button {
 
 @media only screen and (max-width: 425px) {
     #songForm {
-      width: auto;
       justify-content: center;
       width: 700px;
     }

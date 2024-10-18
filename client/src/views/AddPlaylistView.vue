@@ -1,22 +1,24 @@
 <template>
   <div id="addPlaylist">
-    <h1>Add A New Playlist</h1>
+    <h1>Add A New Genre</h1>
     <div id="playlistFlex">
       <playlist-list />
-      <form id="playlistForm" action="">
-        <h2>New Playlist Details</h2>
-        <label for="playlistName"> Playlist Name: </label>
+      <form id="playlistForm" v-on:submit.prevent="addPlaylist">
+        <h2>New Genre Details</h2>
+        <label for="playlistName"> Genre Name: </label>
         <input
           type="text"
           id="playlistName"
-          placeholder="Playlist Name"
+          v-model="playlist.playlistName"
+          placeholder="Genre Name"
           required
         />
-        <label for="playlistDescription"> Playlist Description: </label>
+        <label for="playlistDescription"> Genre Description: </label>
         <input
           type="text"
           id="playlistDescription"
-          placeholder="Playlist Description"
+          v-model="playlist.playlistDescription"
+          placeholder="Genre Description"
         />
         <div><button type="submit">Add Playlist</button></div>
       </form>
@@ -34,7 +36,7 @@ export default {
   created() {
     this.isLoading = true;
     resourceService.getPlaylists().then( (response) => {
-      this.$store.commit("SET_PLAYLIST_NAMES", response.data)
+      this.$store.commit("SET_CURRENT_PLAYLIST_NAME", response.data)
     });
     this.isLoading = false;
   },
@@ -46,7 +48,19 @@ export default {
       },
     };
   },
-  
+  methods: {
+    addPlaylist() {
+      resourceService
+        .addPlaylist(this.playlist)
+        .then((response) => {
+          if(response.status ==201){
+            this.$router.push({
+              name: "home"
+            })
+          }
+        })
+    }
+  }
 
 }
 </script>
@@ -105,12 +119,12 @@ input{
   #playlistFlex {
     display: flex;
     flex-direction: column;
-    width: 730px;
+    width: 700px;
     margin-top: 10px;
     padding-bottom: 20px;
   }
   h1 {
-    width: 730px;
+    width: 700px;
   }
   }
 </style>

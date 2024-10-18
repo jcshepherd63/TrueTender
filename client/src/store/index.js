@@ -5,12 +5,13 @@ export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       playlists: [],
+      currentPlaylistName : 'rock',
       currentSongs: [],
       token: currentToken || '',
       user: currentUser || {},
     },
     mutations: {
-      SET_PLAYLIST_NAMES(state, playlists) {
+      SET_CURRENT_PLAYLIST_NAME(state, playlists) {
         state.playlists = playlists;
       },
       SET_CURRENT_SONGS(state, playlist) {
